@@ -3,35 +3,41 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Simple to do list</title>
+    <title>Awesome Scrum Board</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-      crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
-      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+
   </head>
   <body>
-    <section class="vh-100" style="background-color: #e2d5de">
-      <div class="container py-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col col-xl-10">
-            <div class="card" style="border-radius: 15px">
-              <div class="card-body p-5">
-                <h6 class="mb-3">Awesome Todo List</h6>
+    <section class="vh-100 gradient-custom-2">
+      <div class="header">
+        <div class="row">
+          <h1 class="d-flex justify-content-center text-light">
+            Awesome Scrum Board
+          </h1>
+        </div>
+      </div>
 
-                <form
-                  class="d-flex justify-content-center align-items-center mb-4"
-                >
-                  <div class="form-outline flex-fill">
+      <div class="add-todo-section">
+        <div class="row d-flex justify-content-center">
+          <div class="border-1 col-lg-4 col-md-6 col-sm-12">
+            <div class="card p-3">
+              <div class="card-header">
+                <h6>Add New Task</h6>
+              </div>
+
+              <div class="card-form-section p-3">
+                <div class="row">
+                  <div class="d-flex justify-content-lg-start col-10">
                     <input
                       type="text"
                       id="new-iteam"
@@ -39,92 +45,77 @@
                       class="form-control form-control-lg"
                     />
                   </div>
-                  <div>
-                    <button
-                      id="submit-iteam"
-                      type="submit"
-                      class="btn btn-primary btn-lg ms-2"
-                    >
-                      Add
-                    </button>
-                  </div>
-                </form>
 
-                <ul
-                  id="iteam-list"
-                  class="iteams-list-group list-group mb-0"
-                ></ul>
-              </div>
-
-              <!-- new iteam for clone -->
-              <div class="new-added-iteam d-none">
-                <li
-                  id="asdf"
-                  class="list-group-item d-flex justify-content-between align-items-center border-start-0 border-top-0 border-end-0 border-bottom rounded-0 mb-2"
-                >
-                  <div class="iteams d-flex align-items-center">
-                    <input
-                      class="to-do-done form-check-input me-2"
-                      type="checkbox"
-                      value=""
-                      aria-label="..."
-                    />
-                    <div class="itam-name">hi there</div>
-                  </div>
-                  <a href="#!" title="Remove item">
-                    <i class="fas fa-times text-primary remove-iteam"></i>
-                  </a>
-                </li>
-              </div>
-
-              <!-- new iteam for clone end -->
-
-              <!-- Modal box -->
-              <div
-                class="modal fade"
-                id="myModalBox"
-                tabindex="-1"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">
-                        Alert box
-                      </h5>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div class="modal-body"></div>
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-primary"
-                        data-bs-dismiss="modal"
-                      >
-                        Understood
-                      </button>
-                    </div>
+                  <div class="d-flex justify-content-center col-2">
+                    <button class="btn btn-primary">add</button>
                   </div>
                 </div>
               </div>
-              <!-- Modal box end -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="main-scrum-board-section">
+        <div class="row">
+          <div class="col-12">
+            <div class="board">
+              <div class="row d-flex justify-content-center">
+                <div class="col-2 card p-1 m-2">
+                  <h6 class="d-flex justify-content-center">TODO (3)</h6>
+                </div>
+
+                <div class="col-2 card p-1 m-2">
+                  <h6 class="d-flex justify-content-center">IN PROGRESS (2)</h6>
+                </div>
+
+                <div class="col-2 card p-1 m-2">
+                  <h6 class="d-flex justify-content-center">REVIEW (4)</h6>
+                </div>
+
+                <div class="col-2 card p-1 m-2">
+                  <h6 class="d-flex justify-content-center">DONE (1)</h6>
+                </div>
+              </div>
+
+              <div
+                class="row d-flex justify-content-center"
+                style="height: 500px"
+              >
+                <div class="col-2 card p-1 m-2">
+                  <ul class="list-group" id="sortable">
+                    <li class="list-group-item">An item</li>
+                    <li class="list-group-item">A second item</li>
+                    <li class="list-group-item">A third item</li>
+                    <li class="list-group-item">A fourth item</li>
+                    <li class="list-group-item">And a fifth one</li>
+                  </ul>
+                </div>
+
+                <div id="droppable" class="col-2 card p-1 m-2">
+
+                </div>
+
+                <div class="col-2 card p-1 m-2">
+
+                </div>
+
+                <div class="col-2 card p-1 m-2">
+
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
     <script src="./index.js"></script>
   </body>
 </html>
