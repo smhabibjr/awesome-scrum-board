@@ -1,5 +1,14 @@
 $(document).ready(function () {
-  console.log("hi there");
+
+
+  $("#add-new-iteam").click(function () {
+    console.log("hi there");
+  });
+
+  $("#add-new-iteam").click(function () {
+    alert("Handler for .click() called.");
+  });
+
 
   /* $(".cube").draggable({
     containment: "parent",
@@ -22,7 +31,14 @@ $(document).ready(function () {
 
   $(".sortable").sortable({
     connectWith: ".sortable",
+    cursor: "grabbing",
   });
+
+
+
+
+  
+
 
 });
 // open a modal box function
