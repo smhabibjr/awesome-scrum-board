@@ -17,342 +17,483 @@
       href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
     />
 
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./styles.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   </head>
   <body>
-    <section class="vh-100 vw-100 gradient-custom-2">
-      <div class="header">
-        <div class="row">
-          <h1 class="d-flex justify-content-center text-light p-2 m-2">
-            Awesome Scrum Board
-          </h1>
+    <div class="d-flex" id="wrapper">
+      <!-- Sidebar-->
+      <div class="border-end bg-dark" id="sidebar-wrapper">
+        <div class="sidebar-heading border-bottom text-light bg-dark">
+          Scrum Board
+        </div>
+        <div class="list-group list-group-flush">
+          <a
+            class="list-group-item list-group-item-action bg-dark text-light p-3"
+            href="#!"
+            >Dashboard</a
+          >
+          <a
+            class="list-group-item list-group-item-action bg-dark text-light p-3"
+            href="#!"
+            >Shortcuts</a
+          >
+          <a
+            class="list-group-item list-group-item-action bg-dark text-light p-3"
+            href="#!"
+            >Overview</a
+          >
+          <a
+            class="list-group-item list-group-item-action bg-dark text-light p-3"
+            href="#!"
+            >Events</a
+          >
+          <a
+            class="list-group-item list-group-item-action bg-dark text-light p-3"
+            href="#!"
+            >Profile</a
+          >
+          <a
+            class="list-group-item list-group-item-action bg-dark text-light p-3"
+            href="#!"
+            >Status</a
+          >
         </div>
       </div>
-
-      <div class="add-todo-section">
-        <div class="row d-flex justify-content-center">
-          <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="card p-1">
-              <div class="row">
-                <div class="col-12">
-                  <div class="card-header">
-                    <h6>Add New Task</h6>
+      <!-- Page content wrapper-->
+      <div id="page-content-wrapper">
+        <!-- Top navigation-->
+        <nav
+          class="navbar navbar-expand-lg navbar-light bg-light border-bottom"
+        >
+          <div class="container-fluid">
+            <h2 class="sidebar-heading">Task Kanban</h2>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#!">Home</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="#!">Link</a></li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    id="navbarDropdown"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    >Dropdown</a
+                  >
+                  <div
+                    class="dropdown-menu dropdown-menu-end"
+                    aria-labelledby="navbarDropdown"
+                  >
+                    <a class="dropdown-item" href="#!">Action</a>
+                    <a class="dropdown-item" href="#!">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#!">Something else here</a>
                   </div>
-                </div>
-              </div>
-
-              <div class="row p-2">
-                <div class="col-10">
-                  <div class="row">
-                    <div class="col-3">
-                      <label for="validationCustom04" class="form-label"
-                        >Category</label
-                      >
-                      <select
-                        class="form-select"
-                        id="validationCustom04"
-                        required
-                      >
-                        <option selected disabled value="">Choose...</option>
-                        <option>Administration</option>
-                        <option>UX/UI Design</option>
-                        <option>Fontend Design</option>
-                        <option>Backend</option>
-                      </select>
-                    </div>
-
-                    <div class="col-6">
-                      <label for="validationCustom04" class="form-label"
-                        >Task</label
-                      >
-                      <input
-                        id="validationCustom04"
-                        class="form-control"
-                        type="text"
-                      />
-                    </div>
-
-                    <div class="col-3">
-                      <label for="validationCustom04" class="form-label"
-                        >Submit Date</label
-                      >
-                      <input
-                        class="form-control"
-                        id="validationCustom04"
-                        type="date"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  class="col-2 d-flex justify-content-end align-items-lg-end"
-                >
-                  <button style="height: 40px" class="btn btn-primary">
-                    Add
-                  </button>
-                </div>
-              </div>
+                </li>
+              </ul>
             </div>
           </div>
-        </div>
-      </div>
-
-      <hr />
-
-      <div class="main-scrum-board-section">
-        <div class="row">
-          <div class="col-12">
-            <div class="board">
-              <div class="row d-flex justify-content-center">
-                <div class="col-2 card p-1 m-2 bg-danger">
-                  <h6 class="d-flex justify-content-center text-light">
-                    TODO (3)
-                  </h6>
-                </div>
-
-                <div class="col-2 card p-1 m-2 bg-primary">
-                  <h6 class="d-flex justify-content-center text-light">
-                    IN PROGRESS (2)
-                  </h6>
-                </div>
-
-                <div class="col-2 card p-1 m-2 bg-secondary">
-                  <h6 class="d-flex justify-content-center text-light">
-                    REVIEW (4)
-                  </h6>
-                </div>
-
-                <div class="col-2 card p-1 m-2 bg-success">
-                  <h6 class="d-flex justify-content-center text-light">
-                    DONE (1)
-                  </h6>
-                </div>
-              </div>
-
-              <div
-                class="row d-flex justify-content-center"
-                style="height: 500px"
+        </nav>
+        <!-- Page content-->
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-8">
+              <h1>Brand Concept and Design</h1>
+              <p>
+                Research, ideate and present brand concepts for client
+                consideration
+              </p>
+            </div>
+            <div class="col-4 d-flex justify-content-end align-items-center">
+              <button
+                id="btn-add-task"
+                role="button"
+                style="height: 40px"
+                class="btn btn-primary"
               >
-                <div class="col-2 card p-1 m-2 bg-secondary">
-                  <div id="task-todo-list" class="list-group sortable h-100">
-                    <!--task iteam-->
-                    <div class="card m-2">
-                      <div class="row d-flex justify-content-between">
-                        <div class="col-10">
-                          <h6 class="p-2">Project Manager</h6>
-                        </div>
-                        <div class="col-2">
-                          <i class="p-2 fas fa-ellipsis-v"></i>
-                        </div>
-                      </div>
+                Add
+              </button>
+            </div>
+          </div>
 
-                      <div class="row">
-                        <div class="col-12">
-                          <h5 class="p-2">Initial client meeting</h5>
-                        </div>
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div style="height: 180%" class="bg-secondary card">
+                <h6 class="d-flex justify-content-center text-light">
+                  TODO(3)
+                </h6>
+                <div
+                  id="task-todo-list"
+                  class="list-group sortable"
+                  style="height: 400px"
+                >
+                  <!--task iteam-->
+                  <div class="card m-2">
+                    <div class="row d-flex justify-content-between">
+                      <div class="col-10">
+                        <h6 class="p-2">Project Manager</h6>
                       </div>
-
-                      <div class="row">
-                        <div class="col-6">
-                          <img
-                            style="height: 40px"
-                            src="./images/member.jpg"
-                            class="rounded-circle p-2"
-                            alt="Habib Jr"
-                            title="Habib"
-                          />
-                          <img
-                            style="height: 40px"
-                            src="./images/member.jpg"
-                            class="rounded-circle p-2"
-                            alt="Habib Jr"
-                            title="Habib"
-                          />
-                        </div>
-                        <div class="col-6 d-flex justify-content-center p-2">
-                          <p class="text-muted">Due 10 days</p>
-                        </div>
+                      <div class="col-2">
+                        <i class="p-2 fas fa-ellipsis-v"></i>
                       </div>
                     </div>
-                    <!--task iteam end-->
 
-                    <div class="card m-2">
-                      <div class="row d-flex justify-content-between">
-                        <div class="col-10">
-                          <h6 class="p-2">Project Manager</h6>
-                        </div>
-                        <div class="col-2">
-                          <i class="p-2 fas fa-ellipsis-v"></i>
-                        </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <h5 class="p-1">Initial client meeting</h5>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-3 d-flex justify-content-start">
+                        <p class="p-1">Assignee</p>
                       </div>
 
-                      <div class="row">
-                        <div class="col-12">
-                          <h5 class="p-2">Initial client meeting</h5>
-                        </div>
+                      <div class="col-9 d-flex justify-content-end">
+                        <img
+                          style="height: 40px"
+                          src="./images/member.jpg"
+                          class="rounded-circle p-2"
+                          alt="Habib Jr"
+                          title="Habib"
+                        />
+                        <img
+                          style="height: 40px"
+                          src="./images/member.jpg"
+                          class="rounded-circle p-2"
+                          alt="Habib Jr"
+                          title="Habib"
+                        />
                       </div>
+                    </div>
 
-                      <div class="row">
-                        <div class="col-6">
-                          <img
-                            style="height: 40px"
-                            src="./images/member.jpg"
-                            class="rounded-circle p-2"
-                            alt="Habib Jr"
-                            title="Habib"
-                          />
-                          <img
-                            style="height: 40px"
-                            src="./images/member.jpg"
-                            class="rounded-circle p-2"
-                            alt="Habib Jr"
-                            title="Habib"
-                          />
-                        </div>
-                        <div class="col-6 d-flex justify-content-center p-2">
-                          <p class="text-muted">Due 10 days</p>
-                        </div>
+                    <div class="row">
+                      <div class="col-7">
+                        <p class="p-1">Submit: 25.10.2022</p>
+                      </div>
+                      <div class="col-5">
+                        <p class="p-1">Due 10 days</p>
                       </div>
                     </div>
                   </div>
+                  <!--task iteam end-->
                 </div>
+              </div>
+            </div>
 
-                <div class="col-2 card p-1 m-2">
-                  <div id="task-in-progress" class="list-group sortable h-100">
-                    <div class="card m-2">
-                      <div class="row d-flex justify-content-between">
-                        <div class="col-10">
-                          <h6 class="p-2">Project Manager</h6>
-                        </div>
-                        <div class="col-2">
-                          <i class="p-2 fas fa-ellipsis-v"></i>
-                        </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div style="height: 180%" class="card bg-secondary">
+                <h6 class="d-flex justify-content-center text-light">
+                  IN PROGRESS (2)
+                </h6>
+                <div
+                  id="task-todo-list"
+                  class="list-group sortable"
+                  style="height: 400px"
+                >
+                  <!--task iteam-->
+                  <div class="card m-2">
+                    <div class="row d-flex justify-content-between">
+                      <div class="col-10">
+                        <h6 class="p-2">Project Manager</h6>
+                      </div>
+                      <div class="col-2">
+                        <i class="p-2 fas fa-ellipsis-v"></i>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12">
+                        <h5 class="p-1">Initial client meeting</h5>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-3 d-flex justify-content-start">
+                        <p class="p-1">Assignee</p>
                       </div>
 
-                      <div class="row">
-                        <div class="col-12">
-                          <h5 class="p-2">Initial client meeting</h5>
-                        </div>
+                      <div class="col-9 d-flex justify-content-end">
+                        <img
+                          style="height: 40px"
+                          src="./images/member.jpg"
+                          class="rounded-circle p-2"
+                          alt="Habib Jr"
+                          title="Habib"
+                        />
+                        <img
+                          style="height: 40px"
+                          src="./images/member.jpg"
+                          class="rounded-circle p-2"
+                          alt="Habib Jr"
+                          title="Habib"
+                        />
                       </div>
+                    </div>
 
-                      <div class="row">
-                        <div class="col-6">
-                          <img
-                            style="height: 40px"
-                            src="./images/member.jpg"
-                            class="rounded-circle p-2"
-                            alt="Habib Jr"
-                            title="Habib"
-                          />
-                          <img
-                            style="height: 40px"
-                            src="./images/member.jpg"
-                            class="rounded-circle p-2"
-                            alt="Habib Jr"
-                            title="Habib"
-                          />
-                        </div>
-                        <div class="col-6 d-flex justify-content-center p-2">
-                          <p class="text-muted">Due 10 days</p>
-                        </div>
+                    <div class="row">
+                      <div class="col-7">
+                        <p class="p-1">Submit: 25.10.2022</p>
+                      </div>
+                      <div class="col-5">
+                        <p class="p-1">Due 10 days</p>
                       </div>
                     </div>
                   </div>
+                  <!--task iteam end-->
                 </div>
+              </div>
+            </div>
 
-                <div class="col-2 card p-1 m-2">
-                  <div id="task-preview" class="list-group sortable h-100">
-                    <div class="card m-2">
-                      <div class="row d-flex justify-content-between">
-                        <div class="col-10">
-                          <h6 class="p-2">Project Manager</h6>
-                        </div>
-                        <div class="col-2">
-                          <i class="p-2 fas fa-ellipsis-v"></i>
-                        </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div style="height: 180%" class="bg-secondary card">
+                <h6 class="d-flex justify-content-center text-light">
+                  REVIEW (4)
+                </h6>
+                <div
+                  id="task-todo-list"
+                  class="list-group sortable"
+                  style="height: 400px"
+                >
+                  <!--task iteam-->
+                  <div class="card m-2">
+                    <div class="row d-flex justify-content-between">
+                      <div class="col-10">
+                        <h6 class="p-2">Project Manager</h6>
+                      </div>
+                      <div class="col-2">
+                        <i class="p-2 fas fa-ellipsis-v"></i>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12">
+                        <h5 class="p-1">Initial client meeting</h5>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-3 d-flex justify-content-start">
+                        <p class="p-1">Assignee</p>
                       </div>
 
-                      <div class="row">
-                        <div class="col-12">
-                          <h5 class="p-2">Initial client meeting</h5>
-                        </div>
+                      <div class="col-9 d-flex justify-content-end">
+                        <img
+                          style="height: 40px"
+                          src="./images/member.jpg"
+                          class="rounded-circle p-2"
+                          alt="Habib Jr"
+                          title="Habib"
+                        />
+                        <img
+                          style="height: 40px"
+                          src="./images/member.jpg"
+                          class="rounded-circle p-2"
+                          alt="Habib Jr"
+                          title="Habib"
+                        />
                       </div>
+                    </div>
 
-                      <div class="row">
-                        <div class="col-6">
-                          <img
-                            style="height: 40px"
-                            src="./images/member.jpg"
-                            class="rounded-circle p-2"
-                            alt="Habib Jr"
-                            title="Habib"
-                          />
-                          <img
-                            style="height: 40px"
-                            src="./images/member.jpg"
-                            class="rounded-circle p-2"
-                            alt="Habib Jr"
-                            title="Habib"
-                          />
-                        </div>
-                        <div class="col-6 d-flex justify-content-center p-2">
-                          <p class="text-muted">Due 10 days</p>
-                        </div>
+                    <div class="row">
+                      <div class="col-7">
+                        <p class="p-1">Submit: 25.10.2022</p>
+                      </div>
+                      <div class="col-5">
+                        <p class="p-1">Due 10 days</p>
                       </div>
                     </div>
                   </div>
+                  <!--task iteam end-->
                 </div>
+              </div>
+            </div>
 
-                <div class="col-2 card p-1 m-2">
-                  <div id="task-done" class="list-group sortable h-100">
-                    <div class="card m-2">
-                      <div class="row d-flex justify-content-between">
-                        <div class="col-10">
-                          <h6 class="p-2">Project Manager</h6>
-                        </div>
-                        <div class="col-2">
-                          <i class="p-2 fas fa-ellipsis-v"></i>
-                        </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div style="height: 180%" class="card bg-secondary">
+                <h6 class="d-flex justify-content-center text-light">
+                  DONE (1)
+                </h6>
+                <div
+                  id="task-todo-list"
+                  class="list-group sortable"
+                  style="height: 400px"
+                >
+                  <!--task iteam-->
+                  <div class="card m-2">
+                    <div class="row d-flex justify-content-between">
+                      <div class="col-10">
+                        <h6 class="p-2">Project Manager</h6>
+                      </div>
+                      <div class="col-2">
+                        <i class="p-2 fas fa-ellipsis-v"></i>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12">
+                        <h5 class="p-1">Initial client meeting</h5>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-3 d-flex justify-content-start">
+                        <p class="p-1">Assignee</p>
                       </div>
 
-                      <div class="row">
-                        <div class="col-12">
-                          <h5 class="p-2">Initial client meeting</h5>
-                        </div>
+                      <div class="col-9 d-flex justify-content-end">
+                        <img
+                          style="height: 40px"
+                          src="./images/member.jpg"
+                          class="rounded-circle p-2"
+                          alt="Habib Jr"
+                          title="Habib"
+                        />
+                        <img
+                          style="height: 40px"
+                          src="./images/member.jpg"
+                          class="rounded-circle p-2"
+                          alt="Habib Jr"
+                          title="Habib"
+                        />
                       </div>
+                    </div>
 
-                      <div class="row">
-                        <div class="col-6">
-                          <img
-                            style="height: 40px"
-                            src="./images/member.jpg"
-                            class="rounded-circle p-2"
-                            alt="Habib Jr"
-                            title="Habib"
-                          />
-                          <img
-                            style="height: 40px"
-                            src="./images/member.jpg"
-                            class="rounded-circle p-2"
-                            alt="Habib Jr"
-                            title="Habib"
-                          />
-                        </div>
-                        <div class="col-6 d-flex justify-content-center p-2">
-                          <p class="text-muted">Due 10 days</p>
-                        </div>
+                    <div class="row">
+                      <div class="col-7">
+                        <p class="p-1">Submit: 25.10.2022</p>
+                      </div>
+                      <div class="col-5">
+                        <p class="p-1">Due 10 days</p>
                       </div>
                     </div>
                   </div>
+                  <!--task iteam end-->
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+
+    <!-- Modal box -->
+    <div
+      class="modal fade"
+      id="myModalBox"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Alert box</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Understood
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal box end -->
+
+    <!-- Modal box with form -->
+    <div
+      class="modal fade"
+      id="modalbox-with-form"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add new task</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-6">
+                <label for="category" class="form-label">Category</label>
+                <select class="form-select" id="category">
+                  <option selected disabled value="">Choose...</option>
+                  <option value="Administration">Administration</option>
+                  <option value="UX/UI Design">UX/UI Design</option>
+                  <option value="Fontend Design">Fontend Design</option>
+                  <option value="Backend">Backend</option>
+                </select>
+              </div>
+
+            
+              <div class="col-6">
+                <label for="date" class="form-label">Submit Date</label>
+                <input
+                  class="form-control"
+                  data-date-format="DD MMMM YYYY"
+                  id="date"
+                  type="date"
+                />
+              </div>
+            </div>
+
+
+            <div class="row">
+             
+                <div class="col-12">
+                <label for="task" class="form-label">Task</label>
+                <input id="task" class="form-control" type="text" />
+              </div>
+              
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal box with form end -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 
